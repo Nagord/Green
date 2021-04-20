@@ -1,20 +1,20 @@
-﻿using PulsarPluginLoader.Chat.Commands;
+﻿using PulsarPluginLoader.Chat.Commands.CommandRouter;
 
 namespace Green
 {
-    class GreenCommand : IChatCommand
+    class GreenCommand : PublicCommand
     {
-        public string[] CommandAliases()
+        public override string[] CommandAliases()
         {
             return new string[] { "green" };
         }
 
-        public string Description()
+        public override string Description()
         {
             return "sets ship alert level to green";
         }
 
-        public bool Execute(string arguments, int SenderID)
+        public override void Execute(string arguments, int SenderID)
         {
             if (Global.CommandEnabled)
             {
@@ -24,17 +24,6 @@ namespace Green
             {
                 PulsarPluginLoader.Utilities.Messaging.Notification("Command disabled by host.", PLServer.Instance.GetPlayerFromPlayerID(SenderID));
             }
-            return true;
-        }
-
-        public bool PublicCommand()
-        {
-            return true;
-        }
-
-        public string UsageExample()
-        {
-            return "!green";
         }
     }
 }

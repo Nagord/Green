@@ -1,36 +1,25 @@
-﻿using PulsarPluginLoader.Chat.Commands;
+﻿using PulsarPluginLoader.Chat.Commands.CommandRouter;
 
 namespace Green
 {
-    class AllowGreenCommand : IChatCommand
+    class AllowGreenCommand : ChatCommand
     {
-        public string[] CommandAliases()
+        public override string[] CommandAliases()
         {
             return new string[] { "allowgreen" };
         }
 
-        public string Description()
+        public override string Description()
         {
             return "Allows/Disallows Green command for use.";
         }
 
-        public bool Execute(string arguments, int SenderID)
+        public override void Execute(string arguments)
         {
             Global.CommandEnabled = !Global.CommandEnabled;
             string str = Global.CommandEnabled ? "Enabled" : "Disabled";
             PulsarPluginLoader.Utilities.Messaging.Notification($"Green command {str}");
             PLXMLOptionsIO.Instance.CurrentOptions.SetStringValue("GreenCommandEnabled", Global.CommandEnabled.ToString());
-            return false;
-        }
-
-        public bool PublicCommand()
-        {
-            return false;
-        }
-
-        public string UsageExample()
-        {
-            return "/allowgreen";
         }
     }
 }
