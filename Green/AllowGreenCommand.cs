@@ -1,4 +1,4 @@
-﻿using PulsarPluginLoader.Chat.Commands.CommandRouter;
+﻿using PulsarModLoader.Chat.Commands.CommandRouter;
 
 namespace Green
 {
@@ -18,7 +18,7 @@ namespace Green
         {
             Global.CommandEnabled = !Global.CommandEnabled;
             string str = Global.CommandEnabled ? "Enabled" : "Disabled";
-            PulsarPluginLoader.Utilities.Messaging.Notification($"Green command {str}");
+            PulsarModLoader.Utilities.Messaging.Notification($"Green command {str}");
             PLXMLOptionsIO.Instance.CurrentOptions.SetStringValue("GreenCommandEnabled", Global.CommandEnabled.ToString());
         }
     }

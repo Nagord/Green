@@ -1,4 +1,4 @@
-﻿using PulsarPluginLoader.Chat.Commands.CommandRouter;
+﻿using PulsarModLoader.Chat.Commands.CommandRouter;
 
 namespace Green
 {
@@ -22,7 +22,7 @@ namespace Green
             }
             else
             {
-                PulsarPluginLoader.Utilities.Messaging.Notification("Command disabled by host.", PLServer.Instance.GetPlayerFromPlayerID(SenderID));
+                PulsarModLoader.Utilities.Messaging.Notification("Command disabled by host.", PLServer.Instance.GetPlayerFromPlayerID(SenderID));
             }
         }
     }

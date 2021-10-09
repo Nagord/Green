@@ -1,9 +1,17 @@
-﻿using PulsarPluginLoader;
+﻿using PulsarModLoader;
 
 namespace Green
 {
-    public class Plugin : PulsarPlugin
+    public class Mod : PulsarMod
     {
+        public Mod()
+        {
+            if (bool.TryParse(PLXMLOptionsIO.Instance.CurrentOptions.GetStringValue("GreenCommandEnabled"), out bool result))
+            {
+                Global.CommandEnabled = result;
+            }
+        }
+
         public override string Version => "1.0.1";
 
         public override string Author => "Dragon";
