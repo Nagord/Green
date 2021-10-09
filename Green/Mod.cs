@@ -12,7 +12,7 @@ namespace Green
             }
         }
 
-        public override string Version => "1.0.1";
+        public override string Version => "1.1.0";
 
         public override string Author => "Dragon";
 
